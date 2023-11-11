@@ -1,0 +1,7 @@
+C:\Users\mrbio\Desktop\Games to Git\RPGQuest\RPGQuest\bin\Debug\RPGQuest.exe.config
+C:\Users\mrbio\Desktop\Games to Git\RPGQuest\RPGQuest\bin\Debug\RPGQuest.exe
+C:\Users\mrbio\Desktop\Games to Git\RPGQuest\RPGQuest\bin\Debug\RPGQuest.pdb
+C:\Users\mrbio\Desktop\Games to Git\RPGQuest\RPGQuest\obj\Debug\RPGQuest.csproj.AssemblyReference.cache
+C:\Users\mrbio\Desktop\Games to Git\RPGQuest\RPGQuest\obj\Debug\RPGQuest.csproj.CoreCompileInputs.cache
+C:\Users\mrbio\Desktop\Games to Git\RPGQuest\RPGQuest\obj\Debug\RPGQuest.exe
+C:\Users\mrbio\Desktop\Games to Git\RPGQuest\RPGQuest\obj\Debug\RPGQuest.pdb
