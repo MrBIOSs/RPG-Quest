@@ -4,78 +4,59 @@ using System;
 
 namespace RPGQuest.View
 {
-    internal class MenuUIView
+    internal class MenuUIView : DisplayTextView
     {
-        private ColorChange _colorChange;
-        private MenuUI _menuUI;
+        private ColorChange _colorChange = new ColorChange();
 
         private string _newGame = "1 - Новая игра";
         private string _loadSave = "2 - Загрузить сохранение";
         private string _howToPlay = "3 - Как играть?";
         private string _exit = "/q - Выход";
 
-        private ConsoleColor _titleColor = ConsoleColor.Yellow;
-        private ConsoleColor _menuColor = ConsoleColor.White;
-
         public void ShowMenu()
         {
-            _colorChange = new ColorChange();
-
-            _colorChange.Text(_titleColor, "Добро пожаловать в RPG Quest v0.1b by Mr.BIOSs");
+            _colorChange.Text(_colorChange.Title, "Добро пожаловать в RPG Quest v0.2b by Mr.BIOSs");
             Print("Здесь вы сами выбираете как закончится история вашего персонажа.\n");
 
-            _colorChange.Text(_menuColor, _newGame);
-            _colorChange.Text(_menuColor, _loadSave);
-            _colorChange.Text(_menuColor, _howToPlay);
-            _colorChange.Text(_menuColor, _exit);
-
-            Input();
+            _colorChange.Text(_colorChange.Menu, _newGame);
+            _colorChange.Text(_colorChange.Menu, _loadSave);
+            _colorChange.Text(_colorChange.Menu, _howToPlay);
+            _colorChange.Text(_colorChange.Menu, _exit);
         }
 
         public void ShowNewGame()
         {
-            _colorChange = new ColorChange();
-
             Console.Clear();
 
-            _colorChange.Text(_titleColor, "Новая игра");
+            _colorChange.Text(_colorChange.Title, "Новая игра");
             Print("Вы уверены что хотите начать новую игру?\n");
 
-            _colorChange.Text(_menuColor, "1 - Да!\n");
+            _colorChange.Text(_colorChange.Menu, "1 - Да!\n");
 
-            _colorChange.Text(_menuColor, _loadSave);
-            _colorChange.Text(_menuColor, _howToPlay);
-            _colorChange.Text(_menuColor, _exit);
-
-            Input();
+            _colorChange.Text(_colorChange.Menu, _loadSave);
+            _colorChange.Text(_colorChange.Menu, _howToPlay);
+            _colorChange.Text(_colorChange.Menu, _exit);
         }
 
         public void ShowLoadSave()
         {
-            _colorChange = new ColorChange();
-
             Console.Clear();
 
-            _colorChange.Text(_titleColor, "Загрузить сохранение");
+            _colorChange.Text(_colorChange.Title, "Загрузить сохранение");
             Print("Выберите файл сохранения:\n");
 
-            _colorChange.Text(_menuColor, "2 - Загрузить..\n");
+            _colorChange.Text(_colorChange.Menu, "2 - Загрузить..\n");
 
-            _colorChange.Text(_menuColor, _newGame);
-            _colorChange.Text(_menuColor, _howToPlay);
-            _colorChange.Text(_menuColor, _exit);
-
-            Input();
+            _colorChange.Text(_colorChange.Menu, _newGame);
+            _colorChange.Text(_colorChange.Menu, _howToPlay);
+            _colorChange.Text(_colorChange.Menu, _exit);
         }
 
         public void ShowHowToPlay()
         {
-            _menuUI = new MenuUI();
-            _colorChange = new ColorChange();
-
             Console.Clear();
 
-            _colorChange.Text(_titleColor, "Как играть?");
+            _colorChange.Text(_colorChange.Title, "Как играть?");
             Print("Выберите расу и класс за который будете играть.\n" +
                 "У каждой расы и класса свое место появления персонажа, история, характеристики и способности.\n\n" +
                 "Гравные правила игры:\n" +
@@ -90,21 +71,9 @@ namespace RPGQuest.View
 
             Print("https://github.com/MrBIOSs \n");
 
-            _colorChange.Text(_menuColor, _newGame);
-            _colorChange.Text(_menuColor, _loadSave);
-            _colorChange.Text(_menuColor, _exit);
-
-            Input();
-        }
-
-        private void Print(string text)
-        {
-            Console.WriteLine(text);
-        }
-
-        public void Input()
-        {
-            Console.Write("\nВыберите действие: ");
+            _colorChange.Text(_colorChange.Menu, _newGame);
+            _colorChange.Text(_colorChange.Menu, _loadSave);
+            _colorChange.Text(_colorChange.Menu, _exit);
         }
     }
 }

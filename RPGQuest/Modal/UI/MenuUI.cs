@@ -1,33 +1,145 @@
 ﻿
 using RPGQuest.View;
+using System;
 
-namespace RPGQuest.Modal
+namespace RPGQuest.Modal.UI
 {
     internal class MenuUI
     {
-        private MenuUIView _menuUIView;
+        private CharacterCreation _characterCreation = new CharacterCreation();
 
-        public void ChooseNewGame()
+        private bool _exit = false;
+        public void StartMainMenu(MenuUIView menuUIView, Player player, ErrorsView errorsView)
         {
-            _menuUIView = new MenuUIView();
+            menuUIView.ShowMenu();
 
-            _menuUIView.ShowNewGame();
+            while (!_exit)
+            {
+                menuUIView.InputMessage();
+                player.GetInput(Console.ReadLine());
+
+                switch (player.Input)
+                {
+                    case "1":
+                        StartNewGame(menuUIView, player, errorsView);
+                        break;
+
+                    case "2":
+                        StartLoadSave(menuUIView, player, errorsView);
+                        break;
+
+                    case "3":
+                        StartHowToPlayUI(menuUIView, player, errorsView);
+                        break;
+
+                    case "/q":
+                        _exit = true;
+                        break;
+
+                    default:
+                        errorsView.ShowInputError();
+                        break;
+                }
+            }
         }
 
-        public void ChooseLoadSave()
+        private void StartNewGame(MenuUIView menuUIView, Player player, ErrorsView errorsView)
         {
-            _menuUIView = new MenuUIView();
+            menuUIView.ShowNewGame();
 
-            _menuUIView.ShowLoadSave();
+            while (!_exit)
+            {
+                menuUIView.InputMessage();
+                player.GetInput(Console.ReadLine());
+
+                switch (player.Input)
+                {
+                    case "1":
+                        _characterCreation.StartCharacterCreation(player, errorsView);
+                        break;
+
+                    case "2":
+                        StartLoadSave(menuUIView, player, errorsView);
+                        break;
+
+                    case "3":
+                        StartHowToPlayUI(menuUIView, player, errorsView);
+                        break;
+
+                    case "/q":
+                        _exit = true;
+                        break;
+
+                    default:
+                        errorsView.ShowInputError();
+                        break;
+                }
+            }
         }
 
-        public void СhooseHowToPlay()
+        private void StartLoadSave(MenuUIView menuUIView, Player player, ErrorsView errorsView)
         {
+            menuUIView.ShowLoadSave();
 
-            _menuUIView = new MenuUIView();
+            while (!_exit)
+            {
+                menuUIView.InputMessage();
+                player.GetInput(Console.ReadLine());
 
-            _menuUIView.ShowHowToPlay();
+                switch (player.Input)
+                {
+                    case "1":
+                        StartNewGame(menuUIView, player, errorsView);
+                        break;
+
+                    case "2":
+                        Console.WriteLine("Тут должна быть загрузка созранения... В следующем патче)");
+                        Console.Read();
+                        break;
+
+                    case "3":
+                        StartHowToPlayUI(menuUIView, player, errorsView);
+                        break;
+
+                    case "/q":
+                        _exit = true;
+                        break;
+
+                    default:
+                        errorsView.ShowInputError();
+                        break;
+                }
+            }
+        }
+
+        void StartHowToPlayUI(MenuUIView menuUIView, Player player, ErrorsView errorsView)
+        {
+            menuUIView.ShowHowToPlay();
+
+            while (!_exit)
+            {
+                menuUIView.InputMessage();
+                player.GetInput(Console.ReadLine());
+
+                switch (player.Input)
+                {
+                    case "1":
+                        StartNewGame(menuUIView, player, errorsView);
+                        break;
+
+                    case "2":
+                        StartLoadSave(menuUIView, player, errorsView);
+                        break;
+
+                    case "/q":
+                        _exit = true;
+                        break;
+
+                    default:
+                        errorsView.ShowInputError();
+                        break;
+                }
+            }
         }
     }
 }
-
