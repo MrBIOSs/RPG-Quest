@@ -14,6 +14,12 @@ RU//
 Patch note
 //
 
+v0.2b//
+- partial refactoring has been done;
+- added the ability to create a character;
+- added a new class Druid;
+- added a new race of Elves.
+
 v0.1b//
 - Russian localization;
 - Ready-made game menu.
